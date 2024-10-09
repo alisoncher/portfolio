@@ -5,20 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alison Cher: Personal Site and Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --color-accent: oklch(65% 50% 0); 
+            accent-color: var(--color-accent);
+        body {
+            max-width: 1300px;
+            margin-inline: auto;   
+            padding: 20px;  
+            text-align: center;   
+        }
+
+        nav {
+            display: flex; 
+            justify-content: center; 
+            margin-bottom: 40px;
+            border-bottom: 1px solid oklch(80% 3% 200);
+        }
+
+        nav ul {
+            display: contents;
+            list-style-type: none; 
+            padding: 0; 
+            margin: 0;
+        }
+
+        nav ul li {
+            flex: 1; 
+        }
+
+
+        nav a {
+            display: block; 
+            text-align: center; 
+            padding: 10px; 
+            text-decoration: none;
+            color: inherit; 
+        }
+
+        nav a.current {
+            border-bottom: 0.4em solid oklch(80% 3% 200);
+            padding-bottom: 6px;
+        }
+
+        nav a:hover {
+            border-bottom: 0.4em solid var(--color-accent); 
+            padding-bottom: 6px; 
+            background-color: oklch(from var(--color-accent) 95% 5% h)
+        }
+
+    </style>
 </head>
+
 <body>
-    <h1>Alison Cher</h1>
-    <p>I'm just a girl</p>
-    <img src="images/alison.jpg" alt="A cloudy day in New York City">
+
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li> 
-            <li><a href="projects/index.html">Projects</a></li> 
-            <li><a href="contact/index.html">Contact</a></li> 
-            <li><a href="resume/index.html">Resume</a></li>
-            <li><a href="https://github.com/alisoncher" target="_blank">GitHub</a></li> 
+        <li><a href="/Users/alisoncher/Documents/GitHub/portfolio/index.html" class="current">Home</a></li>
+        <li><a href="/Users/alisoncher/Documents/GitHub/portfolio/projects/index.html">Projects</a></li>
+        <li><a href="/Users/alisoncher/Documents/GitHub/portfolio/contact/index.html">Contact</a></li>
+        <li><a href="/Users/alisoncher/Documents/GitHub/portfolio/resume/index.html">Resume</a></li>
+        <li><a href="https://github.com/alisoncher" target="_blank">GitHub</a>
         </ul>
     </nav>
+    <h1>Alison Cher</h1>
+    <p>I'm just a girl</p>
+    <img src="images/alison.jpg" alt="A cloudy day in New York City" style="width: 300px; height: auto;">
+
+   
 </body>
 </html>
