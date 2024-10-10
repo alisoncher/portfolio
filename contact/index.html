@@ -9,6 +9,7 @@
         :root {
             --color-accent: oklch(65% 50% 0); 
             accent-color: var(--color-accent);
+        }
         body {
             max-width: 1300px;
             margin-inline: auto;   
@@ -54,6 +55,49 @@
             background-color: oklch(from var(--color-accent) 95% 5% h)
         }
 
+        form {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            grid-gap: 20px;
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        form label {
+            display: contents;
+
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px; 
+         
+            border: 1px solid #ccc; 
+            border-radius: 4px;
+            box-sizing: border-box; 
+
+        }
+
+        form button {
+            cursor: pointer; 
+            background-color: var(--color-accent); 
+            color: white;
+            border: none;
+            border-radius: 4px; 
+            padding: 10px 20px;
+            
+            grid-column: 1 / -1;
+            margin-top: 1px;
+        }
+
+        form button:hover {
+            background-color: oklch(80% 3% 200); 
+        }
+
     </style>
 
 </head>
@@ -64,21 +108,22 @@
             <li><a href="/Users/alisoncher/Documents/GitHub/portfolio/index.html">Home</a></li> 
             <li><a href="/Users/alisoncher/Documents/GitHub/portfolio/projects/index.html">Projects</a></li> 
             <li><a href="index.html">Contact</a></li> 
-            <li><a href="/Users/alisoncher/Documents/GitHub/portfolio/resume/index.html">Resume</a></li>
+            <li><a href="/Users/alisoncher/Documents/GitHub/por
+            padding: 10px 20px; tfolio/resume/index.html">Resume</a></li>
             <li><a href="https://github.com/alisoncher" target="_blank">GitHub</a></li> 
         </ul>
     </nav>
     <h1>Contact</h1>
-    <form action="mailto:your-email@example.com" method="POST" enctype="text/plain"></form>
+    <form action="mailto:your-email@example.com" method="POST" enctype="text/plain">
       
-        <label> Your Email:
-        <input type="email" name="email" required</label><br><br>
+        <label> Your Email:</label>
+        <input type="email" name="email" required<br><br>
 
-        <label> Subject:</label><br>
-        <input name="subject" required</label><br><br>
+        <label> Subject:</label>
+        <input name="subject" required>
 
-        <label> Message:
-        <textarea name="body" required></textarea></label><br><br>
+        <label> Message:</label>
+        <textarea name="body" required></textarea>
 
         <button>Send</button>
     </form>
