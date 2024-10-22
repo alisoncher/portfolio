@@ -21,11 +21,10 @@
         nav {
             display: flex; 
             justify-content: center; 
-            width: 100%; /* Ensure it takes full width */
-            max-width: 1300px; /* Optional to match the body */
-            margin: 0 auto 40px; /* Center the nav */
-           
-}
+            width: 100%; 
+            max-width: 1300px; 
+            margin: 0 auto 40px; 
+        }
 
         nav ul {
             display: contents;
@@ -56,7 +55,7 @@
             border-bottom: 0.4em solid var(--color-accent); 
             padding-bottom: 6px; 
             background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-        }
+        } 
 
 
         form button {
@@ -115,6 +114,16 @@
 
         }
 
+    #color-scheme-form {
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+        }
+
+    #color-scheme-select {
+            margin: 0; 
+        }
+
 
 
     </style>
@@ -123,13 +132,13 @@
 <body>
 
     <nav>
-        <ul>
+        <!-- <ul> -->
 
-            <li><a href="../index.html">Home</a></li>
+            <!-- <li><a href="../index.html">Home</a></li>
             <li><a href="../projects/index.html">Projects</a></li>
             <li><a href="../contact/index.html">Contact</a></li>
             <li><a href="../resume/index.html">Resume</a></li>
-            <li><a href="https://github.com/alisoncher" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/alisoncher" target="_blank">GitHub</a></li> -->
 
             <!-- <li><a href="/Users/alisoncher/Documents/GitHub/portfolio/index.html">Home</a></li> 
             <li><a href="/Users/alisoncher/Documents/GitHub/portfolio/projects/index.html">Projects</a></li> 
@@ -138,7 +147,7 @@
             <li><a href="https://github.com/alisoncher" target="_blank">GitHub</a></li>  -->
 
 
-        </ul>
+        <!-- </ul> -->
 
         <form id="color-scheme-form">
             <label for="color-scheme-select">Theme:</label>
@@ -148,7 +157,7 @@
                     <option value="dark">Dark</option>
                 </select>
         </form>
-    </nav>
+    </nav> 
     <h1>Contact</h1>
     <form action="mailto:your-email@example.com" method="POST" enctype="text/plain">
       
