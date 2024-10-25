@@ -63,7 +63,7 @@ console.log('IT’S ALIVE!');
 // }
 
 
-// Define the pages for navigation
+
 let pages = [
     { url: '', title: 'Home' },
     { url: 'projects/', title: 'Projects' },
@@ -83,24 +83,25 @@ const ARE_WE_HOME = document.documentElement.classList.contains('home');
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
-    let isExternal = p.external || false; // Check if the page is external
+    let isExternal = p.external || false; 
 
     // Modify the URL if we are not on the home page
     url = !ARE_WE_HOME && !isExternal && !url.startsWith('http') ? '../' + url : url;
 
-    // Create link and add it to nav
-    nav.insertAdjacentHTML('beforeend', `<a href="${url}"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''}>${title}</a>`);
+    // Create a new <a> element
+    let a = document.createElement('a');
+    a.href = url;
+    a.textContent = title;
+
+    if (a.host === location.host && a.pathname === location.pathname) {
+        a.classList.add('current');
+      }
+
+    // Add current class if this is the current page
+    a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname);
+
+    nav.append(a);
 }
-
-// Optional: Highlight the current page by adding a 'current' class
-const currentPath = window.location.pathname;
-const navLinks = nav.querySelectorAll('a');
-
-navLinks.forEach(link => {
-    if (link.pathname === currentPath) {
-        link.classList.add('current');
-    }
-});
 
 
 
