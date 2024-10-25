@@ -16,6 +16,54 @@ console.log('IT’S ALIVE!');
 //   }
 
 
+// let pages = [
+//     { url: '', title: 'Home' },
+//     { url: 'projects/', title: 'Projects' },
+//     { url: 'contact/', title: 'Contact' },
+//     { url: 'resume/', title: 'Resume' },
+//     { url: 'https://github.com/alisoncher', title: 'GitHub', external: true } // External link
+// ];
+
+// // Create the nav element
+// let nav = document.createElement('nav');
+// document.body.prepend(nav);
+
+// // Get the current path
+// let currentPath = window.location.pathname;
+
+// // Loop over the pages array
+// for (let p of pages) {
+//     let url = p.url;
+//     let title = p.title;
+//     let isExternal = p.external || false; // Check if the page is external
+
+//     // Adjust URL based on current location for internal links only
+//     if (!isExternal && currentPath !== '/' && !url.startsWith('http')) {
+//         url = '../' + url;
+//     }
+
+//     // Create the anchor tag
+//     let a = document.createElement('a');
+//     a.href = url;
+//     a.textContent = title;
+
+//     // Add target="_blank" for external links
+//     if (isExternal) {
+//         a.target = "_blank";
+//         a.rel = "noopener noreferrer"; // Security improvement for external links
+//     }
+
+//     // Add the link to the navigation
+//     nav.append(a);
+
+//     // Highlight the current page
+//     if (!isExternal && a.pathname === window.location.pathname) {
+//         a.classList.add('current');
+//     }
+// }
+
+
+// Define the pages for navigation
 let pages = [
     { url: '', title: 'Home' },
     { url: 'projects/', title: 'Projects' },
@@ -24,43 +72,36 @@ let pages = [
     { url: 'https://github.com/alisoncher', title: 'GitHub', external: true } // External link
 ];
 
-// Create the nav element
+// Create a new <nav> element and prepend it to the body
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 
-// Get the current path
-let currentPath = window.location.pathname;
+// Check if we are on the home page by checking for the 'home' class on the root element
+const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
-// Loop over the pages array
+// Loop over the pages array to create <a> elements for each page
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
     let isExternal = p.external || false; // Check if the page is external
 
-    // Adjust URL based on current location for internal links only
-    if (!isExternal && currentPath !== '/' && !url.startsWith('http')) {
-        url = '../' + url;
-    }
+    // Modify the URL if we are not on the home page
+    url = !ARE_WE_HOME && !isExternal && !url.startsWith('http') ? '../' + url : url;
 
-    // Create the anchor tag
-    let a = document.createElement('a');
-    a.href = url;
-    a.textContent = title;
-
-    // Add target="_blank" for external links
-    if (isExternal) {
-        a.target = "_blank";
-        a.rel = "noopener noreferrer"; // Security improvement for external links
-    }
-
-    // Add the link to the navigation
-    nav.append(a);
-
-    // Highlight the current page
-    if (!isExternal && a.pathname === window.location.pathname) {
-        a.classList.add('current');
-    }
+    // Create link and add it to nav
+    nav.insertAdjacentHTML('beforeend', `<a href="${url}"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''}>${title}</a>`);
 }
+
+// Optional: Highlight the current page by adding a 'current' class
+const currentPath = window.location.pathname;
+const navLinks = nav.querySelectorAll('a');
+
+navLinks.forEach(link => {
+    if (link.pathname === currentPath) {
+        link.classList.add('current');
+    }
+});
+
 
 
 
